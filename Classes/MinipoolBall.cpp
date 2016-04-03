@@ -44,8 +44,9 @@ void MinipoolBall::initBall()
     shape.setRadius(BALL_RADIUS);
     body->createShape(&shape);
     body->setPosition(MyVec2(m_startPosition.x, m_startPosition.y));
-    body->setAngularVelocity(0.05f);
+    //body->setAngularVelocity(0.05f);
     body->setUserData((void*)this);
+    body->setGroupData(50);
     setMyBody(body);
     
     switch(m_color){

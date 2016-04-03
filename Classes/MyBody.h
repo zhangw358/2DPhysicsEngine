@@ -34,6 +34,7 @@ public:
     MyVec2 getPosition();
     
     MyTransform getTransformInfo();
+    void setTransformInfo(MyTransform t);
     
     void update();
     
@@ -50,7 +51,11 @@ public:
     
     void setLinearDamping(float value);
     float getLinearDamping();
+    
+    void setGroupData(int data);
+    int getGroupData();
 private:
+    int m_groupData;
     void* m_userData;
     bool m_bValid;
     bool m_bSensor;

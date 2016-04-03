@@ -12,6 +12,9 @@
 
 #include "cocos2d.h"
 #include "MyPhysics.h"
+#include "MinipoolBall.h"
+#include "MinipoolCue.h"
+#include "LineContainer.h"
 
 USING_NS_CC;
 
@@ -25,6 +28,8 @@ public:
     ~GameLayer();
     void update(float dt);
     virtual void ccTouchesEnded(CCSet* touches, CCEvent* event);
+    virtual void ccTouchesBegan(CCSet* touches, CCEvent* event);
+    virtual void ccTouchesMoved(CCSet* touches, CCEvent* event);
     
     MyWorld* getWorld() {return m_pWorld;}
     
@@ -41,8 +46,15 @@ private:
     void initPhysics();
     void createResetButton();
     void reset(CCObject* sender);
-    
+    void placeCue(CCPoint pos);
 private:
+    float m_pullBack;
+    CCPoint m_cueStartPoint;
+    CCTouch *m_touch;
+    LineContainer *m_lineContainer;
+    MinipoolBall* m_playerBall;
+    MinipoolCue* m_cue;
+    CCSpriteBatchNode *m_gameBatchNode;
     MyWorld* m_pWorld;
     MyContactListenerImpl4* m_pListener;
 };

@@ -17,10 +17,11 @@ MyBody::MyBody()
     m_angularVelocity = 0;
     m_angle = 0;
     m_transform.setIdentity();
-    m_linearDamping = 0.995;
+    m_linearDamping = 0.990;
     m_bValid = true;
     m_userData = NULL;
     m_bSensor = false;
+    m_groupData = 0;
 }
 
 MyBody::~MyBody()
@@ -48,6 +49,11 @@ MyShape* MyBody::getShapeInfo()
 MyTransform MyBody::getTransformInfo()
 {
     return m_transform;
+}
+
+void MyBody::setTransformInfo(MyTransform t)
+{
+    m_transform = t;
 }
 
 void MyBody::setLinearVelocity(MyVec2 v)
@@ -168,4 +174,14 @@ void MyBody::setLinearDamping(float value)
 float MyBody::getLinearDamping()
 {
     return m_linearDamping;
+}
+
+int MyBody::getGroupData()
+{
+    return m_groupData;
+}
+
+void MyBody::setGroupData(int data)
+{
+    m_groupData = data;
 }

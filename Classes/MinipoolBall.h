@@ -16,7 +16,7 @@ using cocos2d::extension::CCPhysicsSprite;
 using cocos2d::CCPoint;
 using cocos2d::CCLayer;
 
-#define BALL_RADIUS 6.0
+#define BALL_RADIUS 7.0f 
 
 enum{
     enColorYellow,
